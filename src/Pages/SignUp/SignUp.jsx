@@ -1,10 +1,11 @@
 
 import { Link } from 'react-router-dom';
-import login from '../../assets/images/login/login.svg'
+import img from '../../assets/images/login/login.svg'
 
-const Login = () => {
+const SignUp = () => {
 
-    const handleLogin = e => {
+    
+    const handleSignUp = e => {
         e.preventDefault();
 
         const form = e.target;
@@ -14,17 +15,22 @@ const Login = () => {
 
     }
 
-
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row gap-5 lg:gap-20">
                 <div className=" w-1/2">
-                    <img src={login} alt="" />
+                    <img src={img} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 rounded-md ">
-                    <h1 className="text-3xl font-bold text-center mt-4">Login now!</h1>
+                    <h1 className="text-3xl font-bold text-center mt-4">Sign Up now!</h1>
 
-                    <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleSignUp} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="email" name='name' placeholder="name" className="input input-bordered" required />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -38,14 +44,14 @@ const Login = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary">Sign Up</button>
                         </div>
                     </form>
-                    <h1 className='text-center mb-5'>New to Car Doctor ? <Link className='text-orange-600 font-bold' to='/signup'> Sign Up</Link> </h1>
+                    <h1 className='text-center mb-5'>Already have an account ? <Link className='text-orange-600 font-bold' to='/login'> Sign In</Link> </h1>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default SignUp;
